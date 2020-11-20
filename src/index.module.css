@@ -1,4 +1,4 @@
-@value makerGreen from './common/colors.css';
+@value makerWhite from './common/colors.css';
 
 body {
   margin: 0;
@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: makerGreen;
+  background-color: makerWhite;
 }
 
 code {
