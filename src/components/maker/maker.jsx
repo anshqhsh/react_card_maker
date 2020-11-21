@@ -1,8 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Editor from '../editor/editor';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
 //props 에 onLogout을 전달 , authService의 logout을 이용
@@ -22,6 +24,10 @@ const Maker = ({ authService }) => {
     return(
         <section className={styles.maker}>
             <Header onLogout={onLogout}/>
+                <div className={styles.container}>
+                    <Editor />
+                    <Preview />
+                </div>
             <Footer />
         </section>
     );
