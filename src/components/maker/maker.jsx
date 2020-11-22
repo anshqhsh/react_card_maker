@@ -56,11 +56,17 @@ const Maker = ({ authService }) => {
             }
         });
     });//authchange가 있다면 유저가 업데이트가 되고 콜백 함수가 수행 사용자가 없다면 히스토리에서 Push로 홈 이동
+
+    const addCard = card => {
+        const updated=[...cards,card];
+        setCards(updated)//state API
+    }
+
     return(
         <section className={styles.maker}>
             <Header onLogout={onLogout}/>
                 <div className={styles.container}>
-                    <Editor cards ={cards}/>
+                    <Editor cards ={cards} addCard={addCard}/>
                     <Preview cards ={cards}/>
                 </div>
             <Footer />
