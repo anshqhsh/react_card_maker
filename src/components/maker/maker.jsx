@@ -6,8 +6,8 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
-//props 에 onLogout을 전달 , authService의 logout을 이용
-const Maker = ({ authService }) => {
+//props 에 onLogout을 전달 , authService의 logout을 이용 FileInput
+const Maker = ({ FileInput, authService }) => {
   const [cards, setCards] = useState({
     1: {
       //key:1,2,3으로 생성 배열로 생성할때의 속도 문제를 해결
@@ -79,6 +79,7 @@ const Maker = ({ authService }) => {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Editor
+          FileInput={FileInput}
           cards={cards}
           addCard={createOrUpdateCard}
           updateCard={createOrUpdateCard}
