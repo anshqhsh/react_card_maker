@@ -7,43 +7,11 @@ import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
 //props 에 onLogout을 전달 , authService의 logout을 이용 FileInput
-const Maker = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      //key:1,2,3으로 생성 배열로 생성할때의 속도 문제를 해결
-      id: '1',
-      name: 'LEEJH1',
-      company: 'kornec',
-      theme: 'dark',
-      title: 'Software Enfineer',
-      email: 'anshqhsh.dev@gmail.com',
-      message: 'contect me',
-      fileName: 'Joon',
-      fileURL: null,
-    },
-    2: {
-      id: '2',
-      name: 'LEEJH2',
-      company: 'kornec',
-      theme: 'light',
-      title: 'Software Enfineer',
-      email: 'anshqhsh.dev@gmail.com',
-      message: 'contect me',
-      fileName: 'Joon',
-      fileURL: null,
-    },
-    3: {
-      id: '3',
-      name: 'LEEJH3',
-      company: 'kornec',
-      theme: 'colorful',
-      title: 'Software Enfineer',
-      email: 'anshqhsh.dev@gmail.com',
-      message: 'contect me',
-      fileName: 'Joon',
-      fileURL: null,
-    },
-  }); // useState : 상태값 관리 state의 값과 state 값 세팅하는 함수 를 리턴
+const Maker = ({ FileInput, authService, cardRepository }) => {
+  const historyState = useHistory().state;//로그인 데이터를 가져옴 
+  const [cards, setCards] = useState({}); // useState : 상태값 관리 state의 값과 state 값 세팅하는 함수 를 리턴
+  const [userId, setUserId] = useState(historyState && historyState.id);//히스토리에서 전달하는 아이디값을 maker 컴포넌트안에서 state로 저장 //히스토리 스테이트가 있으면 안의 id를 사용
+ 
 
   const history = useHistory();
   const onLogout = () => {
@@ -51,8 +19,21 @@ const Maker = ({ FileInput, authService }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    });
+    return () => stopSync();// 컴포넌트가 언마운트 되었을때 메모리를 정리 
+  }, [userId]);
+
+  useEffect(() => {
     authService.onAuthChange(user => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid)
+      }
+      else{ 
         history.push('/');
       }
     });
@@ -64,6 +45,7 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card;//업데이트 되는 키를 이용해서 오브젝트 전체를 card로 바꿔줌
       return updated;
     });
+    cardRepository.saveCard(userId, card);
   };
   
   const deleteCard = card => {
@@ -72,6 +54,7 @@ const Maker = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
