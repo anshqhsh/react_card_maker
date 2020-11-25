@@ -11,7 +11,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const historyState = useHistory().state;//로그인 데이터를 가져옴 
   const [cards, setCards] = useState({}); // useState : 상태값 관리 state의 값과 state 값 세팅하는 함수 를 리턴
   const [userId, setUserId] = useState(historyState && historyState.id);//히스토리에서 전달하는 아이디값을 maker 컴포넌트안에서 state로 저장 //히스토리 스테이트가 있으면 안의 id를 사용
- 
+
 
   const history = useHistory();
   const onLogout = () => {
@@ -26,7 +26,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();// 컴포넌트가 언마운트 되었을때 메모리를 정리 
-  }, [userId]);
+  }, [userId, cardRepository]);//userId 가 변경되거나 cardRepository가 변경되면 실행
 
   useEffect(() => {
     authService.onAuthChange(user => {
@@ -37,7 +37,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
         history.push('/');
       }
     });
-  }); //authchange가 있다면 유저가 업데이트가 되고 콜백 함수가 수행 사용자가 없다면 히스토리에서 Push로 홈 이동
+  },[authService, userId, history]); //authchange가 있다면 유저가 업데이트가 되고 콜백 함수가 수행 사용자가 없다면 히스토리에서 Push로 홈 이동, ,[authService] 추가 authService가 변경될때만 실행되도록 dependency 작성
 
   const createOrUpdateCard = card => {
     setCards(cards => {
