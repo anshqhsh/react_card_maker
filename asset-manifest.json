@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react_card_maker/static/css/main.6bc8c7da.chunk.css",
-    "main.js": "/react_card_maker/static/js/main.d26d335c.chunk.js",
-    "main.js.map": "/react_card_maker/static/js/main.d26d335c.chunk.js.map",
+    "main.js": "/react_card_maker/static/js/main.f5a6203e.chunk.js",
+    "main.js.map": "/react_card_maker/static/js/main.f5a6203e.chunk.js.map",
     "runtime-main.js": "/react_card_maker/static/js/runtime-main.7fde8178.js",
     "runtime-main.js.map": "/react_card_maker/static/js/runtime-main.7fde8178.js.map",
-    "static/js/2.5b5bbb4e.chunk.js": "/react_card_maker/static/js/2.5b5bbb4e.chunk.js",
-    "static/js/2.5b5bbb4e.chunk.js.map": "/react_card_maker/static/js/2.5b5bbb4e.chunk.js.map",
+    "static/js/2.4e9ae27b.chunk.js": "/react_card_maker/static/js/2.4e9ae27b.chunk.js",
+    "static/js/2.4e9ae27b.chunk.js.map": "/react_card_maker/static/js/2.4e9ae27b.chunk.js.map",
     "index.html": "/react_card_maker/index.html",
-    "precache-manifest.551c6ecd16bf5a191c61abb7c619c81b.js": "/react_card_maker/precache-manifest.551c6ecd16bf5a191c61abb7c619c81b.js",
+    "precache-manifest.8f923d280027fafb13354e8b08a27fed.js": "/react_card_maker/precache-manifest.8f923d280027fafb13354e8b08a27fed.js",
     "service-worker.js": "/react_card_maker/service-worker.js",
     "static/css/main.6bc8c7da.chunk.css.map": "/react_card_maker/static/css/main.6bc8c7da.chunk.css.map",
-    "static/js/2.5b5bbb4e.chunk.js.LICENSE.txt": "/react_card_maker/static/js/2.5b5bbb4e.chunk.js.LICENSE.txt"
+    "static/js/2.4e9ae27b.chunk.js.LICENSE.txt": "/react_card_maker/static/js/2.4e9ae27b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7fde8178.js",
-    "static/js/2.5b5bbb4e.chunk.js",
+    "static/js/2.4e9ae27b.chunk.js",
     "static/css/main.6bc8c7da.chunk.css",
-    "static/js/main.d26d335c.chunk.js"
+    "static/js/main.f5a6203e.chunk.js"
   ]
 }
