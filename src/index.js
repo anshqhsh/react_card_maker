@@ -10,9 +10,8 @@ import CardRepository from './service/card_repository';
 const authService = new AuthService();
 const cardRepository = new CardRepository();
 const imageUploader = new ImageUploader();
-//컴포넌트 자체를 다른 컴포넌트에서 전달, 원하는 props를 ImageFileInput에 전달(확장성)
 const FileInput = props => (
-<ImageFileInput {...props} imageUploader={imageUploader}/>
+  <ImageFileInput {...props} imageUploader={imageUploader} />
 );
 
 ReactDOM.render(
