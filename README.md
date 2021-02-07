@@ -1,9 +1,9 @@
 # React
 React project입니다.
 
-- add 버튼으로 데이터 추가 할 수 있습니다.
-- 각 데이터에 +, -, delete 로 데이터에 점수를 주거나 삭제 할 수 있습니다.
-- Reset 버튼으로 데이터 reloading 할 수 있습니다. 
+- API를 이용해 Google, GitHub 로그인을 구현
+- Add 버튼을 이용해 Card를 추가 할 수 있게 구현 
+- logout 기능 구현 
 <br>
 
 > ## Skill <br>
